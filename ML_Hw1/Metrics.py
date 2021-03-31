@@ -54,12 +54,3 @@ def f1_score(y_true, y_predict, percent=0.5):
     recall = conf_m['TP'] / (conf_m['TP'] + conf_m['FN'])
     f1 = 2 * precision * recall / (precision + recall)
     return f1
-
-
-file = np.loadtxt('D:/Datasets/HW2_labels.txt',  delimiter=',')
-y_predict, y_true = file[:, :2], file[:, -1]
-print(accuracy_score(y_true, y_predict, percent=0))
-print(precision_score(y_true, y_predict, percent=0.5))
-print(recall_score(y_true, y_predict, percent=0.5))
-print(lift_score(y_true, y_predict, percent=0.5))
-print(f1_score(y_true, y_predict, percent=0.5))
