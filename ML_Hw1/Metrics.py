@@ -2,7 +2,7 @@ import numpy as np
 
 def road_to_confusion_matrix(y_true, y_predict, percent):
     class_1 = y_predict[:, -1]  # работаем на предсказание, что элемент примет значение 1, то есть берем второй столбец y_predict
-    quantile = np.quantile(a=class_1, q=percent)  # получаем значение процентиля
+    quantile = np.quantile(a = class_1, q = 1 - percent / 100)  # получаем значение процентиля
     top_data = [(class_1[i], i) for i in range(len(class_1)) if class_1[i] >= quantile]  # формируем ТОПовую выборку
     indexes = [elem[1] for elem in top_data]  # запоминаем нахождение элементов
 
